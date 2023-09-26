@@ -118,13 +118,23 @@ student@lin-ops:~/Desktop/Security$ ssh -S /tmp/billybobhost -O forward -D9050
 * to cancel tunnel replace the "forward" with "cancel" *
 
 
+after MS and D
+proxychains nmap -v -sT -Pn -T4 --script http-enum.nse 192.168.28.111 -p 80
+
+
+/usr/share/nmap/scripts
+ftp brute
+smb enum
+
+proxychains nikto -h 192.168.28.111
 
 
 
 
-
-
-
-
-
+in summary 
+scraper
+ping sweep prolly from master socket
+nmap 
+http enum or ftp or smb
+nikto
 
