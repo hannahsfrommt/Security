@@ -62,11 +62,13 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDATVcXTWhY1e69F6+ecZ4O8PxagGb49iOqq+ukjIg6
 
 target: 10.100.28.48 known port 80
 
+Keys to the Kingdom
+
+extract flag.txt compressed/zip
+basee64 - MTR1N3k2alg3N2M1RHN0YWhOSEoK
 
 
-
-
-
+4nGfU     87s2V
 
 
 
