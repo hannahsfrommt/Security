@@ -52,3 +52,41 @@ root:x:0:0:root:/root:/bin/bash daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin 
 
 
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDATVcXTWhY1e69F6+ecZ4O8PxagGb49iOqq+ukjIg6YQh6AIIqJROoLZ+lzbKfS5bt3zFwcP2yGkC0TGMVclVC/ScYUBtFj7xuKv+CdDIIqej82yTVjLyvDiKSaEaz+bKqCEcWdggW1PP2Xcm7ZrpIsTryPCYo27ldhJEjY8MoOQ3iZZh3cVl5sOdUFSfenMHV6YfMhhrEGgPe2pFJOe24nmrcCxEn4UO+pK93UObhISBwhtsrXS6C0h9q3jgfQFHohAOlL8ycLFtVNgkLU70tOmeWCqG0K3V2lDWVyNOLgx+JPbswBhp1QWSos543+PFVmiRFgELcVBQn3o6OCN8j student@lin-ops
+
+
+
+
+
+
+# SQL CTFDs
+
+target: 10.100.28.48 known port 80
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
