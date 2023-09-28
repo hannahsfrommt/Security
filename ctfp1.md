@@ -70,8 +70,11 @@ basee64 - MTR1N3k2alg3N2M1RHN0YWhOSEoK
 
 4nGfU     87s2V
 
-
-
+```
+student@lin-ops:~$ ssh -MS /tmp/gray student@10.50.36.239
+student@lin-ops:~$ ssh -S /tmp/gray gray -O forward -D9050
+student@lin-ops:~$ ssh -S /tmp/gray gray -O forward -L 1460:10.100.28.48:80
+```
 
 
 
