@@ -97,7 +97,7 @@ student@lin-ops:~$ scp -r -P 1440 comrade@127.0.0.1:/var/www/html/consulting/pub
 C:\Users\student\Desktop\REExercise> scp -r student@10.50.31.3:/home/student/Desktop/Security/ C:\Users\student\Desktop\REExercise
 
 
-
+remmina to use rdp session for windows machine
 
 
 
