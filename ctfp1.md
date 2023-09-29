@@ -76,10 +76,25 @@ student@lin-ops:~$ ssh -S /tmp/gray gray -O forward -D9050
 student@lin-ops:~$ ssh -S /tmp/gray gray -O forward -L 1460:10.100.28.48:80
 ```
 
+Hacker	GirthWorm
+
+GirthWorm	password
+
+GirthWorm@gmail.com
+
+shadfskjfdh \',1);#\
 
 
 
 
+
+# reverse engineering 
+creds to 192.168.28.111
+comrade::StudentWebExploitPassword
+ssh port 2222
+
+student@lin-ops:~$ scp -r -P 1440 comrade@127.0.0.1:/var/www/html/consulting/public_html/longTermStorage /home/student/Desktop/Security
+C:\Users\student\Desktop\REExercise> scp -r student@10.50.31.3:/home/student/Desktop/Security/ C:\Users\student\Desktop\REExercise
 
 
 
