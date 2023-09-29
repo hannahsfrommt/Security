@@ -39,3 +39,11 @@ mem2:
     cmp rax, r8     //compare rax register value (16) to r8 register value (16)
     je mem1         //jump if comparison has zero bit set to mem1
 ```
+
+
+
+![image](https://github.com/hannahsfrommt/Security/assets/140441321/b5b28788-9f4a-4963-91e1-2774df0a5eda)
+
+PE means windows
+ELF usually signifies linux
+
