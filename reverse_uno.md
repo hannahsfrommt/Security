@@ -47,3 +47,8 @@ mem2:
 PE means windows
 ELF usually signifies linux
 
+
+
+
+# Patching
+right click > patch instruction
