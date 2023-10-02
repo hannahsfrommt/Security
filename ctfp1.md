@@ -101,7 +101,11 @@ remmina to use rdp session for windows machine
 
 
 
+92, 138, 184, 230, 276, 322, 368, 414, 460, 506
+= 2990
 
+local_c + local_10 == 17535
+to return 674
 
 
 
