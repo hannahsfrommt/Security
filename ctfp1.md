@@ -114,7 +114,7 @@ to return 674
  ssh -MS /tmp/gray student@10.50.36.239
   ssh -S /tmp/gray gray -O forward -L 1460:192.168.28.111:2222
  ssh -MS /tmp/comradehost comrade@0.0.0.0 -p 1460
-ssh -S /tmp/comradehost -O forward -D9050 -p1460
+ssh -S /tmp/comradehost -O forward -D9050 -P 1460
 proxychains nmap -p 445 --script smb-os-discovery 192.168.150.245
 
 
