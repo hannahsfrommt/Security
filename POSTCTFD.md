@@ -63,13 +63,26 @@ comrade@lin:~$ cat /usr/share/terminfo/b/beacon | openssl enc -d -base64 -aes-12
    68  ls -la /etc/rsyslog.d/50-default.conf 
 
 
-
-student@lin-ops:~$ ssh -MS /tmp/www-datahost www-data@0.0.0.0 -p 1460
-student@lin-ops:~$ ssh -S /tmp/www-datahost www-data -O forward -L 1463:192.168.150.253:3201
+student@lin-ops:~/Desktop/Security$ ssh -MS /tmp/gray student@10.50.36.239
 student@lin-ops:~$ ssh -S /tmp/gray gray -O forward -L 1460:192.168.28.100:2222
+student@lin-ops:~$ ssh -MS /tmp/www-datahost www-data@0.0.0.0 -p 1460
+
+
+
+student@lin-ops:~$ ssh -S /tmp/www-datahost www-data -O forward -L 1463:192.168.150.253:3201
 student@lin-ops:~$ ssh -S /tmp/gray gray -O forward -L 1461:192.168.28.100:80
 student@lin-ops:~$ ssh -S /tmp/gray gray -O forward -D9050
+
+
+student@lin-ops:~$ ssh -S /tmp/gray gray -O forward -L 1470:192.168.28.105:2222
+student@lin-ops:~$ ssh -MS /tmp/orange comrade@0.0.0.0 -p 1470
 student@lin-ops:~$ ssh -S /tmp/gray gray -O cancel -D9050
+student@lin-ops:~$ ssh -S /tmp/orange orange -O cancel -D9050
+
+
+comrade@lin:~$ sudo tcpdump -i ens3 -XXvvn 'not port 3201'
+
+
 main ms
 
 
