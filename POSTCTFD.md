@@ -77,7 +77,7 @@ student@lin-ops:~$ ssh -S /tmp/gray gray -O forward -D9050
 student@lin-ops:~$ ssh -S /tmp/gray gray -O forward -L 1470:192.168.28.105:2222
 student@lin-ops:~$ ssh -MS /tmp/orange comrade@0.0.0.0 -p 1470
 student@lin-ops:~$ ssh -S /tmp/gray gray -O cancel -D9050
-student@lin-ops:~$ ssh -S /tmp/orange orange -O cancel -D9050
+student@lin-ops:~$ ssh -S /tmp/orange orange -O forward -D9050
 
 
 comrade@lin:~$ sudo tcpdump -i ens3 -XXvvn 'not port 3201'
