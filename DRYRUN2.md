@@ -194,3 +194,25 @@ review linux and windows buffer overflow
 run msfvenom using 0.0.0.0 bc that what we used in 
 
 
+linux buffer overflow reveiw
+./func
+find user input vs command input
+user input = <<<
+./func <<<$(echo "")
+try to crash
+./func <<<$(echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+student@lin-ops:~/Desktop/Security$ gdb ./func
+gdb-peda$ run <<<$(echo "Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2A")
+EIP: 0x31634130 ('0Ac1') (put in wiremask 62 = offset)
+0x31634130 in ?? ()
+
+(gdb) info proc map
+im lost
+
+
+
+going over stealing keys after uploading webshell.py
+
+
+
+
