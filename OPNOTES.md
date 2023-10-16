@@ -145,3 +145,6 @@ tcp      LISTEN     0          1                           0.0.0.0:21254        
 root@defense-nix1-19:/# cat /root/svch0st.sh 
 find reference # and nc listener script as we see
 
+root@defense-nix1-19:/home/devops# scp -r RE_this student@10.50.44.112:C:
+copied to my windows box, used ghidra to decode it and saw num >> 2 == 21 i used this 
+https://bit-calculator.com/bit-shift-calculator to help find that a num that fits the first input is 85 
